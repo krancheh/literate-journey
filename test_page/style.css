@@ -134,8 +134,12 @@ body {
 
 
 .test__annotation {
+    color: #fff;
     font-family: 'Poiret One', sans-serif;
     font-weight: 700;
+
+    text-shadow: 1px 0 1px #000,
+        0 1px 1px #000;
 }
 
 
