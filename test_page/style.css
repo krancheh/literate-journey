@@ -13,7 +13,7 @@ p {
 
 body {
     min-height: 100vh;
-    background: url("books.jpg") no-repeat;
+    background: url("images/test-background.webp") no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -36,18 +36,8 @@ body {
 }
 
 .test {
-    height: 100%;
     width: 100%;
-
-    background: #ffffff88;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     padding: 20px;
-
-    border: 1px #0000007e solid;
-    border-radius: 10px;
-
-
 }
 
 .test a {
@@ -59,7 +49,7 @@ body {
 
     font-size: 6rem;
     font-weight: normal;
-    font-family: "Good Vibes Pro";
+    font-family: "Good Vibes Pro", sans-serif;
 
     color: black;
     transition: 0.5s ease;
@@ -73,7 +63,7 @@ body {
 }
 
 .test__title {
-    font-family: 'Poiret One';
+    font-family: 'Poiret One', sans-serif;
     font-size: 2rem;
     margin-bottom: 100px;
 
@@ -87,26 +77,29 @@ body {
 
 /* QUESTION */
 .question {
+    margin-bottom: 20px;
     padding: 35px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
     background-color: #dcdcdc8f;
-    border: 1px #0000007e solid;
     border-radius: 18px;
+
+    font-family: 'Myriad Pro', sans-serif;
 }
 
 .question__title {
     margin-bottom: 35px;
-    font-family: 'Myriad Pro';
+
     font-weight: normal;
     font-size: 35px;
 }
 
 .question__text {
     margin-bottom: 10px;
-    font-family: 'Myriad Pro';
+
     font-weight: bold;
     font-size: 30px;
 }
@@ -117,29 +110,32 @@ body {
     width: 100%;
     margin-top: 20px;
     padding: 10px 0;
+
     background-color: white;
     cursor: pointer;
 
-    font-family: 'Myriad Pro';
     font-size: 24px;
 
-    border: 1px #0000007e solid;
+    border: 1px #00000000 solid;
     border-radius: 12px;
 }
 
 
 .answer_button:hover {
     background-color: #e4e4e47e;
+    border: 1px #0000007e solid;
 }
 
 
 
 
 
-/* PUSHKIN */
 
-.pushkin img {
-    max-width: 0%;
+
+
+.test__annotation {
+    font-family: 'Poiret One', sans-serif;
+    font-weight: 700;
 }
 
 
@@ -167,7 +163,7 @@ body {
 
 
     .test {
-        padding: 10px 0;
+        padding: 10px;
     }
 
     .test h1 {
