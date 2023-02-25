@@ -1,0 +1,144 @@
+*,
+::after,
+::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: normal;
+    font-family: "Good Vibes Pro";
+    line-height: 70%;
+}
+
+h2 {
+    margin: 30px 0 30px 0;
+    font-size: 1.5rem;
+    font-family: 'Poiret One', cursive;
+}
+
+
+@font-face {
+    font-family: "Good Vibes Pro";
+    src: url(fonts/Good_Vibes_Pro.ttf);
+}
+
+#backgroundVideo {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+/* BANNER */
+.banner {
+    margin: 50px;
+    padding: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    background: #ffffff88;
+    border-radius: 30px;
+}
+
+.banner img {
+    max-width: 125px;
+}
+
+.banner__button {
+    padding: 10px;
+    border: 1px #161616 solid;
+    border-radius: 12px;
+    color: #161616;
+    text-decoration: none;
+    transition: 0.4s ease;
+    font-family: 'Poiret One';
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.banner__button:hover {
+    color: #c4c4c4;
+    background-color: #161616;
+}
+
+@media screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .banner {
+        margin: 20px;
+        padding: 35px;
+    }
+
+    .banner img {
+        max-width: 100px;
+    }
+
+    .banner__button {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 0.8rem;
+        margin: 15px;
+    }
+
+    .banner {
+        margin: 10px;
+        padding: 30px;
+    }
+
+    .banner img {
+        max-width: 55px;
+    }
+
+    .banner__button {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+}
