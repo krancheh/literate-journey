@@ -23,6 +23,18 @@ const questionList = [
 ] // Список вопросов
 
 
+const answerList = [
+    new Answer('Беляев А. Р. – «Человек-амфибия»', 'test_page/images/book_1.webp', 'baaa'),
+    new Answer('Брунштейн А. Я. – «Дорога уходит вдаль»', 'test_page/images/book_2.jpg', 'baac'),
+    new Answer('Лесков Н. С. – «Неразменный рубль»', 'test_page/images/book_3.jpg', 'bbbb'),
+    new Answer('Лермонтов М. Ю. – «Ашик-кериб»', 'test_page/images/book_4.jpg', 'abcb'),
+    new Answer('Грин А. С. – «Алые паруса»', 'test_page/images/book_5.jpg', 'abbc'),
+    new Answer('Полевой Б. Н. – «Повесть о настоящем человеке»', 'test_page/images/book_6.jpg', 'aaac'),
+    new Answer('Пушкин А. С. – «Капитанская дочка»', 'test_page/images/book_7.jpg', 'cbcc'),
+    new Answer('Чехов А.П. – «Тоска»', 'test_page/images/book_8.jpg', 'cbba'),
+    new Answer('Замятин Е. И. – «Мы»', 'test_page/images/book_9.jpg', 'cacb'),
+] // Список ответов
+
 
 function Question(question, a, b, c) {
     this.question = question;
@@ -31,6 +43,12 @@ function Question(question, a, b, c) {
     this.c = c;
 } // Конструктор вопроса
 
+
+function Answer(bookName, bookImage, answer) {
+    this.bookName = bookName;
+    this.bookImage = bookImage;
+    this.answer = Array.from(answer);
+} // Конструктор ответа
 
 
 
@@ -60,7 +78,7 @@ class QuestionView extends React.Component {
                 'button',
                 {
                     className: "answer_button", onClick: () => {
-                        result.push("a");
+                        if (![2, 5, 7, 8, 9, 10].includes(this.state.questionNumber + 1)) result.push("a");
                         if (this.state.questionNumber + 1 < 10) this.setState({ questionNumber: this.state.questionNumber + 1 });
                         else root.render(seeResult());
                     }
@@ -72,7 +90,7 @@ class QuestionView extends React.Component {
                 'button',
                 {
                     className: "answer_button", onClick: () => {
-                        result.push("b");
+                        if (![2, 5, 7, 8, 9, 10].includes(this.state.questionNumber + 1)) result.push("b");
                         if (this.state.questionNumber + 1 < 10) this.setState({ questionNumber: this.state.questionNumber + 1 });
                         else root.render(seeResult());
                     }
@@ -84,7 +102,7 @@ class QuestionView extends React.Component {
                 'button',
                 {
                     className: "answer_button", onClick: () => {
-                        result.push("c");
+                        if (![2, 5, 7, 8, 9, 10].includes(this.state.questionNumber + 1)) result.push("c");
                         if (this.state.questionNumber + 1 < 10) this.setState({ questionNumber: this.state.questionNumber + 1 });
                         else root.render(seeResult());
                     }
@@ -108,6 +126,9 @@ root.render(e(QuestionView));
 
 
 function seeResult() {
+
+    let resultBookIndex = mostAppropriateBook(result);
+
     return (
         e(
             'div',
@@ -122,13 +143,13 @@ function seeResult() {
                 { className: "result" },
                 e(
                     'img',
-                    { className: "result__image", src: "test_page/images/Lovecraft.png" }   // Фото книги
+                    { className: "result__image", src: answerList[resultBookIndex].bookImage }   // Фото книги
                 )
             ),
             e(
                 'p',
                 { className: "question__text" },
-                'Говард Лавкрафт "Хз че это"'   // Книга
+                answerList[resultBookIndex].bookName   // Книга
             ),
             e(
                 'button',
@@ -144,3 +165,13 @@ function seeResult() {
     )
 }
 
+
+
+function mostAppropriateBook(result) {
+    let apprAnswers = answerList.map(book => {
+        let k = 0;
+        book.answer.forEach((value, index) => { if (value == result[index]) k++ });
+        return (book.answer[0] == result[0]) ? k : 0;
+    });
+    return apprAnswers.indexOf(Math.max.apply(null, apprAnswers));
+}
