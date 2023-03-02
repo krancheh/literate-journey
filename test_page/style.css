@@ -12,11 +12,21 @@ p {
 }
 
 body {
+    position: relative;
     min-height: 100vh;
-    background: url("images/test-background.webp") no-repeat;
-    background-size: cover;
+
     display: flex;
     justify-content: center;
+}
+
+body::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: fixed;
+    background: url("images/test-background.webp") no-repeat;
+    background-size: cover;
 }
 
 @font-face {
