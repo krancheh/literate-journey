@@ -40,6 +40,10 @@ h2 {
     top: 0;
     bottom: 0;
     z-index: -1;
+
+    background: linear-gradient(45deg,
+            #e7b957,
+            #f7e7b9e3);
 }
 
 .wrapper {
